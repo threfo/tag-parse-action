@@ -69,7 +69,7 @@ async function run(): Promise<void> {
           body: JSON.stringify(tagMessage),
         },
       });
-      console.log("ret------: ", ret.data);
+      console.log("ret-------: ", ret.data);
     }
     if (type === "parse") {
       const { release } = pushPayload || {};
