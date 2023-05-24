@@ -3,9 +3,9 @@
   "version": "0.0.5",
   "private": true,
   "description": "TypeScript template action",
-  "main": "lib/main.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf lib/* && tsc",
+    "build": "rimraf dist/* && tsc",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint src/**/*.ts",
@@ -17,11 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/actions/typescript-action.git"
   },
-  "keywords": [
-    "actions",
-    "node",
-    "setup"
-  ],
+  "keywords": ["actions", "node", "setup"],
   "author": "",
   "license": "MIT",
   "dependencies": {
