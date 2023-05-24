@@ -1,4 +1,4 @@
-name: "Tag parse"
+name: "Run action by tag parse"
 description: "打tag以及tag解析"
 author: "Autumn"
 branding:
