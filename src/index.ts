@@ -24,7 +24,7 @@ async function run(): Promise<void> {
     const topRepository: string = core.getInput("repository");
     const githubToken: string = core.getInput("githubToken");
     const type: string = core.getInput("type");
-    const runCommand: string = core.getInput("runCommand");
+    const runCommand: string = core.getInput("runCommand") || "";
     const appPath: string = core.getInput("appPath") || "";
 
     console.log("topRepository:", topRepository);
@@ -43,7 +43,10 @@ async function run(): Promise<void> {
       const tagUrl = getTagUrl(topRepository || full_name);
       const timesTamp = formatTime(new Date(), "{yy}-{mm}-{dd}-{h}-{i}-{s}");
 
-      const tagName = `${outRepository}/${syncBranch}/${timesTamp}`;
+      const tagName = `${outRepository}/${syncBranch}/${timesTamp}/${runCommand.replace(
+        /\s+/g,
+        "_"
+      )}`;
       // `release/${timesTamp}&branch=${branch}&syncBranch=${syncBranch}&repository=${outRepository}`
       const tagMessage = {
         branch,
