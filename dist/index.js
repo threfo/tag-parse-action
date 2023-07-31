@@ -55,7 +55,7 @@ function run() {
             const topRepository = core.getInput("repository");
             const githubToken = core.getInput("githubToken");
             const type = core.getInput("type");
-            const runCommand = core.getInput("runCommand");
+            const runCommand = core.getInput("runCommand") || "";
             const appPath = core.getInput("appPath") || "";
             console.log("topRepository:", topRepository);
             console.log("type:", type);
@@ -70,7 +70,7 @@ function run() {
                 const syncBranch = (0, utils_1.getSyncBranch)(ref);
                 const tagUrl = (0, utils_1.getTagUrl)(topRepository || full_name);
                 const timesTamp = (0, utils_1.formatTime)(new Date(), "{yy}-{mm}-{dd}-{h}-{i}-{s}");
-                const tagName = `${outRepository}/${syncBranch}/${timesTamp}`;
+                const tagName = `${outRepository}/${syncBranch}/${timesTamp}/${runCommand.replace(/\s+/g, "_")}`;
                 // `release/${timesTamp}&branch=${branch}&syncBranch=${syncBranch}&repository=${outRepository}`
                 const tagMessage = {
                     branch,
