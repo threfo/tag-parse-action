@@ -19,6 +19,10 @@ inputs:
     required: false
     description: "执行的命令"
     default: "build"
+  appPath:
+    required: false
+    description: "构建后产物存放路径"
+    default: ""
 runs:
   using: "node12"
   main: "dist/index.js"
